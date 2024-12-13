@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
 import { LoggerModule as PinoLoggerModule } from 'nestjs-pino';
 import { EnvModule, EnvService } from '../env';
 
@@ -11,7 +10,7 @@ import { EnvModule, EnvService } from '../env';
       useFactory: async (envService: EnvService) => {
         return {
           pinoHttp: {
-            level: 'trace',
+            level: envService.get('LOG_LEVEL'),
             transport: {
               target: 'pino-pretty',
               options: {
