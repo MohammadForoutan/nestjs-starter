@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+. "$(dirname "$0")/h"
+# npx commitlint --edit
+echo "Uncomment to use commitlint in commit-msg hook"
