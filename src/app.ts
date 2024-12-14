@@ -11,6 +11,7 @@ export async function createApp() {
   const logger = app.get(Logger);
   app.useLogger(logger); // Logger from pino
 
+  // versioning
   app.enableVersioning({
     type: VersioningType.URI,
     defaultVersion: '1',
